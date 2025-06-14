@@ -58,7 +58,8 @@ jobs:
       - name: Build xiaomi-alioth
         run: |
           cp xiaomi-alioth.cfg ~/.config/pmbootstrap_v3.cfg
-          pmbootstrap install --password 147147
+          pmbootstrap --extra-space 1000 install --no-sparse --password 147147
+	  pmbootstrap initfs hook_add netboot
           pmbootstrap export
           cp /tmp/postmarketOS-export/boot.img out/boot-xiaomi-tianma-alioth.img
           cp /tmp/postmarketOS-export/xiaomi-alioth.img out/rootfs-xiaomi-alioth.img
